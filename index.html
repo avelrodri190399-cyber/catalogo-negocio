@@ -40,6 +40,8 @@ select,input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:12px
 <option>Glup Cola Negra</option>
 <option>Glup Chinotto</option>
 <option>Glup Uva</option>
+<option>Glup Kolita</option>
+<option>Glup Hielo</option>
 </select>
 <div class="row">
 <select id="refresco_presentacion">
@@ -49,6 +51,26 @@ select,input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:12px
 <option>2 Litros</option>
 </select>
 <input id="refresco_cantidad" type="number" min="1" placeholder="Cantidad">
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>🧃 Jugos Justy</h2>
+<div class="producto">
+<label>Producto</label>
+<select id="jugo">
+<option value="">Seleccionar</option>
+<option>Justy Durazno</option>
+<option>Justy Pera</option>
+</select>
+<div class="row">
+<select id="jugo_presentacion">
+<option value="">Presentación</option>
+<option>400 ml</option>
+<option>1.5 Litros</option>
+</select>
+<input id="jugo_cantidad" type="number" min="1" placeholder="Cantidad">
 </div>
 </div>
 </div>
@@ -142,6 +164,13 @@ function enviarPedido(){
     document.getElementById("refresco").value,
     document.getElementById("refresco_cantidad").value,
     document.getElementById("refresco_presentacion").value
+  );
+
+  agregarPedido(
+    pedido,
+    document.getElementById("jugo").value,
+    document.getElementById("jugo_cantidad").value,
+    document.getElementById("jugo_presentacion").value
   );
 
   agregarPedido(pedido, document.getElementById("cigarro").value, document.getElementById("cigarro_cantidad").value);
