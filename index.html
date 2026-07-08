@@ -13,75 +13,160 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f3f4f6;margin:0;color:#1
 .container{max-width:720px;margin:auto;padding:18px}
 .card{background:white;border-radius:20px;padding:18px;margin:15px 0;box-shadow:0 8px 22px rgba(0,0,0,.08)}
 .card h2{margin:0 0 12px;font-size:23px}
-.list{font-size:18px;line-height:1.75}
-.badge{display:inline-block;background:#eef2ff;color:#111827;padding:8px 12px;border-radius:999px;margin:5px 4px;font-weight:bold}
-.btn{position:sticky;bottom:12px;display:block;background:#25D366;color:white;text-align:center;text-decoration:none;font-size:20px;font-weight:bold;padding:17px;border-radius:18px;box-shadow:0 7px 20px rgba(0,0,0,.20);margin-top:20px}
+.producto{border-top:1px solid #e5e7eb;padding:12px 0}
+.producto:first-of-type{border-top:0}
+label{font-size:18px;font-weight:bold;display:block;margin-bottom:7px}
+select,input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:12px;font-size:16px;margin:5px 0 10px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:block;background:#25D366;color:white;text-align:center;text-decoration:none;font-size:20px;font-weight:bold;padding:17px;border-radius:18px;box-shadow:0 7px 20px rgba(0,0,0,.20);margin:20px 0;border:0;width:100%;cursor:pointer}
 .footer{text-align:center;color:#6b7280;font-size:14px;margin:22px 0}
+.note{font-size:14px;color:#6b7280;margin-top:5px}
 </style>
 </head>
 <body>
 <div class="header">
 <h1>🛒 Catálogo de Productos</h1>
-<p>Escoge tu producto y realiza tu pedido por WhatsApp</p>
+<p>Selecciona tus productos y envía tu pedido por WhatsApp</p>
 </div>
 
 <div class="container">
 
 <div class="card">
 <h2>🥤 Refrescos Glup</h2>
-<div class="list">
-<b>Sabores:</b><br>
-Cola Negra · Chinotto · Uva<br><br>
-<b>Presentaciones:</b><br>
-<span class="badge">400 ml</span>
-<span class="badge">1 Litro</span>
-<span class="badge">2 Litros</span>
+<div class="producto">
+<label>Producto</label>
+<select id="refresco">
+<option value="">Seleccionar</option>
+<option>Glup Cola Negra</option>
+<option>Glup Chinotto</option>
+<option>Glup Uva</option>
+</select>
+<div class="row">
+<select id="refresco_presentacion">
+<option value="">Presentación</option>
+<option>400 ml</option>
+<option>1 Litro</option>
+<option>2 Litros</option>
+</select>
+<input id="refresco_cantidad" type="number" min="1" placeholder="Cantidad">
+</div>
 </div>
 </div>
 
 <div class="card">
 <h2>🚬 Cigarros</h2>
-<div class="list">
-Lucky Strike Nova<br>
-Belmont<br>
-PallMall<br>
-Universal<br>
-Consul
+<div class="producto">
+<label>Marca</label>
+<select id="cigarro">
+<option value="">Seleccionar</option>
+<option>Lucky Strike Nova</option>
+<option>Belmont</option>
+<option>Pall Mall</option>
+<option>Universal</option>
+<option>Consul</option>
+</select>
+<input id="cigarro_cantidad" type="number" min="1" placeholder="Cantidad">
 </div>
 </div>
 
 <div class="card">
 <h2>🍿 Snacks</h2>
-<div class="list">
-Tostón salado<br>
-Puffy pepito<br>
-Parrillita<br>
-Chupeta
+<div class="producto">
+<label>Snack</label>
+<select id="snack">
+<option value="">Seleccionar</option>
+<option>Tostón salado</option>
+<option>Puffy pepito</option>
+<option>Parrillita</option>
+<option>Chupeta</option>
+</select>
+<input id="snack_cantidad" type="number" min="1" placeholder="Cantidad">
 </div>
 </div>
 
 <div class="card">
 <h2>🍪 Galletas y dulces</h2>
-<div class="list">
-Club Social<br>
-Crackqueña<br>
-TAM<br>
-Gomitas<br>
-Caramelos<br>
-Chicles / goma
+<div class="producto">
+<label>Producto</label>
+<select id="dulce">
+<option value="">Seleccionar</option>
+<option>Club Social</option>
+<option>Crackqueña</option>
+<option>TAM</option>
+<option>Gomitas</option>
+<option>Caramelos</option>
+<option>Chicles / goma</option>
+</select>
+<input id="dulce_cantidad" type="number" min="1" placeholder="Cantidad">
 </div>
 </div>
 
 <div class="card">
 <h2>🧼 Higiene y limpieza</h2>
-<div class="list">
-Papel higiénico 4 rollos<br>
-Jabón en polvo Alive 200 g
+<div class="producto">
+<label>Producto</label>
+<select id="limpieza">
+<option value="">Seleccionar</option>
+<option>Papel higiénico 4 rollos</option>
+<option>Jabón en polvo Alive 200 g</option>
+</select>
+<input id="limpieza_cantidad" type="number" min="1" placeholder="Cantidad">
 </div>
 </div>
 
-<a class="btn" href="https://wa.me/584264088774?text=Hola%2C%20quiero%20hacer%20un%20pedido%20del%20cat%C3%A1logo%20%F0%9F%9B%92">📲 Pedir por WhatsApp</a>
+<div class="card">
+<h2>📍 Datos del cliente</h2>
+<input id="nombre" placeholder="Nombre">
+<input id="direccion" placeholder="Dirección o referencia">
+<input id="nota" placeholder="Nota adicional">
+<p class="note">Puedes dejar campos vacíos si solo deseas consultar disponibilidad.</p>
+</div>
+
+<button class="btn" onclick="enviarPedido()">📲 Enviar pedido por WhatsApp</button>
 <div class="footer">WhatsApp: 0426 4088774</div>
 </div>
+
+<script>
+function agregarPedido(lista, producto, cantidad, detalle=""){
+  if(producto){
+    let cant = cantidad || "1";
+    lista.push("• " + producto + (detalle ? " - " + detalle : "") + " | Cantidad: " + cant);
+  }
+}
+
+function enviarPedido(){
+  let pedido = [];
+
+  agregarPedido(
+    pedido,
+    document.getElementById("refresco").value,
+    document.getElementById("refresco_cantidad").value,
+    document.getElementById("refresco_presentacion").value
+  );
+
+  agregarPedido(pedido, document.getElementById("cigarro").value, document.getElementById("cigarro_cantidad").value);
+  agregarPedido(pedido, document.getElementById("snack").value, document.getElementById("snack_cantidad").value);
+  agregarPedido(pedido, document.getElementById("dulce").value, document.getElementById("dulce_cantidad").value);
+  agregarPedido(pedido, document.getElementById("limpieza").value, document.getElementById("limpieza_cantidad").value);
+
+  let nombre = document.getElementById("nombre").value;
+  let direccion = document.getElementById("direccion").value;
+  let nota = document.getElementById("nota").value;
+
+  if(pedido.length === 0){
+    alert("Selecciona al menos un producto antes de enviar.");
+    return;
+  }
+
+  let mensaje = "Hola, quiero hacer este pedido:%0A%0A";
+  mensaje += pedido.join("%0A");
+  mensaje += "%0A%0A";
+  if(nombre) mensaje += "Nombre: " + encodeURIComponent(nombre) + "%0A";
+  if(direccion) mensaje += "Dirección/Referencia: " + encodeURIComponent(direccion) + "%0A";
+  if(nota) mensaje += "Nota: " + encodeURIComponent(nota) + "%0A";
+
+  window.open("https://wa.me/584264088774?text=" + mensaje, "_blank");
+}
+</script>
 </body>
 </html>
